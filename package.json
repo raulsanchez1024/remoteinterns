@@ -1,0 +1,15 @@
+{
+  "name": "remoteinterns",
+  "version": "1.0.0",
+  "description": "Remote internships",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raul Sanchez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "validator": "^10.9.0"
+  }
+}
