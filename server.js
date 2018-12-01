@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+const internships = require("./routes/api/internships");
+
 // Body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -17,6 +19,9 @@ mongoose
 
 // Simple get request (for testing ONLY)
 app.get("/", (req, res) => res.send("Hello"));
+
+// Use routes
+app.use("/api/internships", internships);
 
 // 🔥 up the server port 1024
 const port = process.env.PORT || 1024;
