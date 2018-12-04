@@ -5,6 +5,7 @@ const WhtBtn = styled.button`
   color: #373737;
   font-size: 15px;
   height: 45px;
+  margin-right: 30px;
   width: 100px;
 `;
 

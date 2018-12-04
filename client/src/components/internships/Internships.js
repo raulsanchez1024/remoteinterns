@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 import { getInternships } from '../../actions/internshipActions';
 import InternshipFeed from './InternshipFeed';
 
+import styled from "styled-components";
+
+const Feed = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+`;
+
 class Internships extends Component {
     componentDidMount () {
       this.props.getInternships();
@@ -20,9 +29,9 @@ class Internships extends Component {
     }
 
     return (
-      <div className="feed">
+      <Feed>
         { content }
-      </div>
+      </Feed>
     )
   }
 }
