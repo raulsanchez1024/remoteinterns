@@ -21,8 +21,8 @@ const Category = styled.div`
     padding-right: 75px;
     margin-top: 25px;
     margin-bottom: 25px;
-    font-family: 'Poppins', sans-serif;
     font-weight: 700;
+    width: 100%
 
     span {
       font-size: 50px;
@@ -43,6 +43,11 @@ const HR = styled.hr`
     margin-bottom: 60px;
 `;
 
+const iconStyle = {
+  fontSize: "55px",
+  marginLeft: "15px"
+};
+
 class Landing extends Component {
   render() {
     return (
@@ -52,33 +57,34 @@ class Landing extends Component {
         <Categories>
           <Category>
             <a href="/">
-              <span>💻</span> <br/> SOFTWARE
+            <i className="fas fa-code" style={iconStyle}></i>SOFTWARE
             </a>
           </Category>
 
           <Category>
             <a href="/">
-              <span>🌍</span> <br/> MARKETING
+            <i className="fas fa-chart-line" style={iconStyle}></i>MARKETING
             </a>
           </Category>
 
           <Category>
             <a href="/">
-              <span>🎨</span> <br/> DESIGN
+            <i className="fas fa-palette" style={iconStyle}></i><br/>DESIGN
             </a>
           </Category>
 
           <Category>
             <a href="/">
-              <span>🤑</span> <br/> SALES
+            <i className="fas fa-trophy" style={iconStyle}></i>TOP-COMPANIES
             </a>
           </Category>
 
           <Category>
             <a href="/">
-              <span>👔</span> <br/> NON-TECHY
+            <i className="fas fa-user-tie" style={iconStyle}></i>NON-TECHY
             </a>
           </Category>
+
         </Categories>
 
         <HR />
