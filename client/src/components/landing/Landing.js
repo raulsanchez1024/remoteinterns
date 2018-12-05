@@ -12,6 +12,7 @@ const Categories = styled.div`
   margin: auto;
   width: 40%;
   padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 const Category = styled.div`

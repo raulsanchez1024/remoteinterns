@@ -7,10 +7,10 @@ import InternshipFeed from './InternshipFeed';
 import styled from "styled-components";
 
 const Feed = styled.div`
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     width: 80%;
-    margin: auto;
+    margin: auto; */
 `;
 
 class Internships extends Component {
