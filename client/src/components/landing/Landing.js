@@ -19,10 +19,28 @@ const Category = styled.div`
     display: flex;
     flex-direction: column;
     padding-right: 75px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+
     span {
       font-size: 50px;
-      text-align: center;
     }
+
+    a {
+      text-decoration: none;
+      color: #727272;
+    }
+
+    a:hover {
+      color: #373737;
+    }
+`;
+
+const HR = styled.hr`
+    width: 60%;
+    margin-bottom: 60px;
 `;
 
 class Landing extends Component {
@@ -33,30 +51,37 @@ class Landing extends Component {
 
         <Categories>
           <Category>
-            <span>💻</span>
-            SOFTWARE
+            <a href="/">
+              <span>💻</span> <br/> SOFTWARE
+            </a>
           </Category>
 
           <Category>
-            <span>🌍</span>
-            MARKETING
+            <a href="/">
+              <span>🌍</span> <br/> MARKETING
+            </a>
           </Category>
 
           <Category>
-            <span>🎨</span>
-            DESIGN
+            <a href="/">
+              <span>🎨</span> <br/> DESIGN
+            </a>
           </Category>
 
           <Category>
-            <span>🤑</span>
-            SALES
+            <a href="/">
+              <span>🤑</span> <br/> SALES
+            </a>
           </Category>
 
           <Category>
-            <span>👔</span>
-            NON-TECHY
+            <a href="/">
+              <span>👔</span> <br/> NON-TECHY
+            </a>
           </Category>
         </Categories>
+
+        <HR />
 
         <Internships />
       </div>

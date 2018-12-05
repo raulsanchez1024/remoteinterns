@@ -45,7 +45,7 @@ const Nav = styled.nav`
 
   h1 {
     color: white;
-    padding-top: 25px;
+    padding-top: 15px;
     padding-left: 20px;
   }
 

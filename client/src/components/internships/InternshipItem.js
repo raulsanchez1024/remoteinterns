@@ -11,6 +11,27 @@ const Container = styled.div`
   width: 80%;
   background-color: #E2E2E2;
   padding-bottom: 105px;
+  box-shadow: #CFCFCF 2px 3px;
+  
+  :hover {
+    transition-duration: 0.5s;
+    height: 60px;
+    width: 81%;
+  }
+
+  h1 {
+    padding-left: 15px;
+    padding-top: 15px;
+  }
+
+  h2 {
+    padding-left: 15px;
+    margin-top: -20px;
+  }
+
+  h3 {
+    padding-left: 15px;
+  }
 `;
 
 class InternshipItem extends Component {
@@ -18,8 +39,9 @@ class InternshipItem extends Component {
     const { internship } = this.props;
     return (
       <Container>
-        <h1>{ internship.companyname }</h1>
+        <h1><a href={`http://${internship.applyurl}`}>{ internship.companyname }</a></h1>
         <h2>{ internship.position }</h2>
+        <h3>{ internship.basedfrom }</h3>
       </Container>
     )
   }
