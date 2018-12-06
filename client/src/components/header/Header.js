@@ -175,10 +175,10 @@ class Header extends Component {
 
         <Search>
           <p className="jobtitle">Job Title</p>
-          <div className="form">
+          <form className="form">
             <input type="text" placeholder="Software Engineer" />
-            <a href="/">Find</a>
-          </div>
+            <a href="/" type="submit">Find</a>
+          </form>
         </Search>
 
       </HeaderTop>

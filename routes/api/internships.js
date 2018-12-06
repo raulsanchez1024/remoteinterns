@@ -5,9 +5,49 @@ const mongoose = require("mongoose");
 // Import Internship model
 const Internship = require("../../models/Internship");
 
-// Return all posts by newest first
+// GET all posts by newest first
 router.get("/", (req, res) => {
   Internship.find({}).sort("-date").exec((err, docs) => {
+    if (err) throw err;
+    return res.json(docs);
+  });
+});
+
+// GET all posts with category of Software
+router.get("/software", (req, res) => {
+  Internship.find({ "category": "software" }).exec((err, docs) => {
+    if (err) throw err;
+    return res.json(docs);
+  });
+});
+
+// GET all posts with category of Marketing
+router.get("/marketing", (req, res) => {
+  Internship.find({ "category": "marketing" }).exec((err, docs) => {
+    if (err) throw err;
+    return res.json(docs);
+  });
+});
+
+// GET all posts with category of Design
+router.get("/design", (req, res) => {
+  Internship.find({ "category": "design" }).exec((err, docs) => {
+    if (err) throw err;
+    return res.json(docs);
+  });
+});
+
+// GET all posts with category of Top-Company
+router.get("/top-companies", (req, res) => {
+  Internship.find({ "category": "top-company" }).exec((err, docs) => {
+    if (err) throw err;
+    return res.json(docs);
+  });
+});
+
+// GET all posts with category of Non-Techy
+router.get("/non-techy", (req, res) => {
+  Internship.find({ "category": "non-tech" }).exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });
