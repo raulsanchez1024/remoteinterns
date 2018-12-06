@@ -117,6 +117,39 @@ const Container = styled.div`
       text-decoration: underline;
     }
   }
+
+  @media(max-width: 600px) {
+    flex-direction: column;
+    height: 300px;
+
+    .col1 {
+      width: 100%;
+      margin-top: 25px;
+    }
+
+    .col2 {
+      width: 100%;
+    }
+
+    .col3 {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .apply {
+      display: block;
+    }
+
+    :hover {
+      height: 305px;
+      width: 82%;
+
+      .exp {
+       display: block;
+      }
+      
+    }
+  }
 `;
 
 const Tag = styled.a`

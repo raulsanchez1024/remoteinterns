@@ -8,21 +8,20 @@ import Internships from "../internships/Internships";
 
 const Categories = styled.div`
   display: flex;
-  flex-direction: row;
   margin: auto;
-  width: 40%;
+  width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
+  justify-content: center;
 `;
 
 const Category = styled.div`
     display: flex;
-    flex-direction: column;
-    padding-right: 75px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    flex-direction: row;
     font-weight: 700;
-    width: 100%
+    font-size: 10px;
+    align-items: center;
+    padding: 0 10px 0 ;
 
     span {
       font-size: 50px;
@@ -40,7 +39,7 @@ const Category = styled.div`
 
 const HR = styled.hr`
     width: 60%;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
 `;
 
 const iconStyle = {
@@ -56,33 +55,23 @@ class Landing extends Component {
 
         <Categories>
           <Category>
-            <a href="/">
-            <i className="fas fa-code" style={iconStyle}></i>SOFTWARE
-            </a>
+            <a href="/">SOFTWARE</a>
           </Category>
 
           <Category>
-            <a href="/">
-            <i className="fas fa-chart-line" style={iconStyle}></i>MARKETING
-            </a>
+            <a href="/">MARKETING</a>
           </Category>
 
           <Category>
-            <a href="/">
-            <i className="fas fa-palette" style={iconStyle}></i><br/>DESIGN
-            </a>
+            <a href="/">DESIGN</a>
           </Category>
 
           <Category>
-            <a href="/">
-            <i className="fas fa-trophy" style={iconStyle}></i>TOP-COMPANIES
-            </a>
+            <a href="/">TOP-COMPANIES</a>
           </Category>
 
           <Category>
-            <a href="/">
-            <i className="fas fa-user-tie" style={iconStyle}></i>NON-TECHY
-            </a>
+            <a href="/">NON-TECHY</a>
           </Category>
 
         </Categories>

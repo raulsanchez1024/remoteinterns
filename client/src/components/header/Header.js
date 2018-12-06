@@ -54,23 +54,17 @@ const Nav = styled.nav`
     margin-left: auto;
     padding-top: 25px;
   }
+
+  @media(max-width: 800px) {
+    img {
+      display: none;
+    }
+
+    display: none;
+  }
 `;
 
-const Search = styled.input`
-  background: #373737;
-  background-image: url("../search.png") no-repeat scroll 1px 1px;
-  border-radius: 5px;
-  border: 3px white solid;
-  color: white;
-  font-size: 15px;
-  height: 45px;
-  display: flex;
-  margin: auto;
-  padding-left: 10px;
-  width: 25%;
-`;
-
-const S = styled.div`
+const Search = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -79,13 +73,16 @@ const S = styled.div`
   input {
     background: #373737;
     border-radius: 5px;
-      border: 3px white solid;
-      color: white;
-      font-size: 15px;
-      height: 45px;
-      width: 25%;
-
+    border: 3px white solid;
+    color: white;
+    font-size: 15px;
+    height: 45px;
+    width: 25%;
+    position: relative;
+    padding-left: 15px;
+    outline: none;
   }
+
   i {
     position: absolute;
     top: 70px;
@@ -93,14 +90,81 @@ const S = styled.div`
     color: white;
     font-size: 25px;
   }
+
+  .form {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+
+    a {
+      color: #373737;
+      margin-left: 15px;
+      background: white;
+      border-radius: 5px;
+      font-weight: 700;
+      text-align: center;
+      padding-top: 15px;
+      text-decoration: none;
+      width: 75px;
+    }
+  }
+
+  @media(max-width: 800px) {
+    margin-top: 45px;
+
+    input {
+      width: 85%;
+    }
+  }
+
+`;
+
+const ResponsiveNav = styled.nav`
+  flex-direction: row;
+  width: 80%;
+  margin: auto;
+  display: none;
+  color: white;
+
+  .nav__right {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav__right a {
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    border: 3px solid white;
+    border-radius: 5px;
+    width: 75px;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: 700;
+}
+
+  @media(max-width: 800px) {
+    display: flex;
+  }
 `;
 
 class Header extends Component {
   render() {
     return (
       <HeaderTop>
+
+        <ResponsiveNav>
+          <div className="nav__left">
+            <h1>RemoteInterns</h1>
+          </div>
+          <div className="nav__right">
+            <a href="/">Post</a>
+          </div>
+        </ResponsiveNav>
+
         <Nav>
-          <img src={logoPNG} />
+          <img src={logoPNG} alt="remoteinterns__logo" />
           <h1>RemoteInterns</h1>
           
           <div className="right">
@@ -109,11 +173,13 @@ class Header extends Component {
           </div>
         </Nav>
 
-        <S>
-          <p>Job Title</p>
-          <i class="fa fa-search icon"></i>
-          <input class="input-field" type="text" placeholder="Software Engineer" name="usrnm" />
-        </S>
+        <Search>
+          <p className="jobtitle">Job Title</p>
+          <div className="form">
+            <input type="text" placeholder="Software Engineer" />
+            <a href="/">Find</a>
+          </div>
+        </Search>
 
       </HeaderTop>
     );
