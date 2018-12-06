@@ -3,7 +3,8 @@ import axios from "axios";
 import {
   GET_INTERNSHIPS,
   ADD_INTERNSHIP,
-  GET_PROMOTED_INTERNSHIPS
+  GET_PROMOTED_INTERNSHIPS,
+  GET_SEARCHED_INTERNSHIPS
 } from "./types";
 
 export const addInternship = internshipData => dispatch => {
@@ -29,3 +30,15 @@ export const getInternships = () => dispatch => {
     )
     .catch(err => console.log(err));
 };
+
+export const getSearchedInternships = () => dispatch => {
+  axios
+    .get("/api/internships/search/:search")
+    .then(res => 
+      dispatch({
+        type: GET_SEARCHED_INTERNSHIPS,
+        payload: res.data  
+      })
+    )
+    .catch(err => console.log(err));
+}

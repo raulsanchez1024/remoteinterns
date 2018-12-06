@@ -17,4 +17,6 @@ const InternshipSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
+InternshipSchema.index( { "$**": "text" });
+
 module.exports = Internship = mongoose.model("internship", InternshipSchema);

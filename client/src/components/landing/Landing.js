@@ -42,11 +42,6 @@ const HR = styled.hr`
     margin-bottom: 45px;
 `;
 
-const iconStyle = {
-  fontSize: "55px",
-  marginLeft: "15px"
-};
-
 class Landing extends Component {
   render() {
     return (
@@ -77,7 +72,8 @@ class Landing extends Component {
         </Categories>
 
         <HR />
-
+        
+        
         <Internships />
       </div>
     )
