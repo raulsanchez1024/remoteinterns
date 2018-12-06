@@ -70,6 +70,31 @@ const Search = styled.input`
   width: 25%;
 `;
 
+const S = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    background: #373737;
+    border-radius: 5px;
+      border: 3px white solid;
+      color: white;
+      font-size: 15px;
+      height: 45px;
+      width: 25%;
+
+  }
+  i {
+    position: absolute;
+    top: 70px;
+    left: 320px;
+    color: white;
+    font-size: 25px;
+  }
+`;
+
 class Header extends Component {
   render() {
     return (
@@ -84,10 +109,12 @@ class Header extends Component {
           </div>
         </Nav>
 
-        <div className="search">
-          <p className="jobtitle">Job Title</p>
-          <Search placeholder="Software Engineer" />
-        </div>
+        <S>
+          <p>Job Title</p>
+          <i class="fa fa-search icon"></i>
+          <input class="input-field" type="text" placeholder="Software Engineer" name="usrnm" />
+        </S>
+
       </HeaderTop>
     );
   }

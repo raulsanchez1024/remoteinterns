@@ -90,7 +90,8 @@ const Container = styled.div`
   h2 {
     padding-left: 15px;
     margin-top: 15px;
-    font-size: 25px;
+    padding-bottom: 10px;
+    font-size: 15px;
 
     a {
       text-decoration: none;
@@ -104,6 +105,7 @@ const Container = styled.div`
 
   h5 {
     margin-top: -25px;
+    font-weight: 300;
     padding-left: 15px;
 
     a {
@@ -159,7 +161,7 @@ class InternshipItem extends Component {
         <div className="col1">
           <h2><a href="#" onClick={this.openModal}>{internship.position}</a></h2>
           <h5>
-            <a href={`http://${internship.applyurl}`}>
+            <a href={`http://${internship.applyurl}`} target="_blank">
               {internship.companyname}
             </a>
           </h5>
