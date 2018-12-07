@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logoPNG from "../remoteinterns.png";
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
+import { history } from "../../App";
 
 // Styles
 import WhtBtn from "../styles/WhtBtn";
@@ -150,6 +150,24 @@ const ResponsiveNav = styled.nav`
 `;
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      search: ""
+    }
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    history.push(`/search/${this.state.search}`);
+  }
+
   render() {
     return (
       <HeaderTop>
@@ -175,9 +193,9 @@ class Header extends Component {
 
         <Search>
           <p className="jobtitle">Job Title</p>
-          <form className="form">
-            <input type="text" placeholder="Software Engineer" />
-            <a href="/" type="submit">Find</a>
+          <form className="form" onSubmit={this.onSubmit}>
+            <input type="text" placeholder="Software Engineer" onChange={this.onChange} name="search" />
+            <a type="submit" href={`/search/${this.state.search}`} >Find</a>
           </form>
         </Search>
 

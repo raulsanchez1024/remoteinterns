@@ -29,6 +29,7 @@ class InternshipsSearch extends Component {
 
     return (
       <div>
+        <h3>Search result for: { this.state.search }</h3>
         { content }
       </div>
     )
