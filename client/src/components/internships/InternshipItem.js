@@ -4,19 +4,6 @@ import Modal from "react-modal";
 
 import "./modal.css";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    height: "350px",
-    width: "25%",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
-
 const HrStyle = {
   width: "75%"
 }
@@ -207,7 +194,7 @@ class InternshipItem extends Component {
         </div>
         <div className="col3">
           <p className="exp">Salary: {internship.salary}</p>
-          <a href="/" className="apply">
+          <a href={`http://${internship.applyurl}`} target="_blank" className="apply">
             Apply
           </a>
         </div>

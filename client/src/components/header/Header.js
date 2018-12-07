@@ -3,6 +3,8 @@ import logoPNG from "../remoteinterns.png";
 import { history } from "../../App";
 import styled from "styled-components";
 
+import Modal from "react-modal";
+
 // Styles
 import WhtBtn from "../styles/WhtBtn";
 import OutlineBtn from "../styles/OutlineBtn";
@@ -170,11 +172,14 @@ class Header extends Component {
   constructor() {
     super();
     this.state = {
-      search: ""
+      search: "",
+      modalIsOpen: false
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   onChange(e) {
@@ -183,6 +188,14 @@ class Header extends Component {
 
   onSubmit(e) {
     history.push(`/search/${this.state.search}`);
+  }
+
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
   }
 
   render() {
@@ -203,10 +216,65 @@ class Header extends Component {
           <a href="/"><h1>RemoteInterns</h1></a>
           
           <div className="right">
-            <WhtBtn href="/contact">Contact</WhtBtn>
-            <OutlineBtn href="/post">Post an Internship</OutlineBtn>
+            <WhtBtn href="mailto:raulsanchez1024@gmail.com">Contact</WhtBtn>
+            <OutlineBtn href="#" onClick={this.openModal}>Post an Internship</OutlineBtn>
           </div>
         </Nav>
+
+        <Modal 
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          portalClassName="modal"
+          className="Modal"
+          overlayClassName="Overlay"
+          contentLabel="Example Modal"
+        >
+          <div className="close">
+            <a href="#" onClick={this.closeModal} className="x">✕</a>
+          </div>
+
+          <div className="form__title">
+            <h3>Post an Internship</h3>
+            <p>$29 per post for one week of top frontpage placement</p>
+          </div>
+
+          <form className="form">
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" placeholder="internships@google.com" />
+            <label htmlFor="position">Position</label>
+            <input type="text" name="position" placeholder="Software Engineer Intern" />
+            <label htmlFor="company">Company</label>
+            <input type="text" name="company" placeholder="Google" />
+            <label htmlFor="basedfrom">Based From</label>
+            <input type="text" name="basedfrom" placeholder="Earth, Prague" />
+            <label htmlFor="category">Category</label>
+            <select name="category" id="">
+              <option value="software">Software</option>
+              <option value="marketing">Marketing</option>
+              <option value="design">Design</option>
+              <option value="top-companies">Top Company</option>
+              <option value="non-techy">Non-Techy</option>
+            </select>
+            <label htmlFor="extratags">Three keywords that best describe this position</label>
+            <input type="text" name="extratags" placeholder="React.js, Node.js, SCSS" />
+            <label htmlFor="salary">Salary</label>
+            <input type="text" name="salary" placeholder="$25/hr" />
+            <label htmlFor="locationrestrictions">Location Restriction</label>
+            <input type="text" name="locationrestrictions" placeholder="Must be US citizen" />
+            <label htmlFor="description">Description</label>
+            <textarea name="description" cols="30" rows="10"></textarea>
+            <label htmlFor="requirements">Requirements</label>
+            <textarea name="requirements" cols="30" rows="10"></textarea>
+            <label htmlFor="applyurl">Apply URL</label>
+            <input type="text" name="applyurl" placeholder="https://google.com/internship0023" />
+
+            <p className="promo__info">Once submitted we will send you an invoice of <strong>$29</strong> to your email. When paid, your post will be placed at the top of the frontpage for one week.</p>
+
+            <button type="submit">Submit</button>
+          </form>
+
+        </Modal>
 
         <Search>
           <p className="jobtitle">Job Title</p>
