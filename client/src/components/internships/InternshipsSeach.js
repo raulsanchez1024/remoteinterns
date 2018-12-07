@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getSearchedInternships } from '../../actions/internshipActions';
 import InternshipFeed from './InternshipFeed';
 
-const h1Style = {
+const h3Style = {
   fontWeight: "300",
   width: "80%",
   margin: "auto",
@@ -36,7 +36,7 @@ class InternshipsSearch extends Component {
 
     return (
       <div>
-        <h3 style={h1Style}>Search result for: <strong>{ this.state.search }</strong></h3>
+        <h3 style={h3Style}>Search result for: <strong>{ this.state.search }</strong></h3>
         { content }
       </div>
     )

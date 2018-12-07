@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
 
+import "./modal.css";
+
 const customStyles = {
   content: {
     top: "50%",
@@ -14,6 +16,10 @@ const customStyles = {
     transform: "translate(-50%, -50%)"
   }
 };
+
+const HrStyle = {
+  width: "75%"
+}
 
 const Container = styled.div`
   display: flex;
@@ -211,17 +217,50 @@ class InternshipItem extends Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           portalClassName="modal"
-          style={customStyles}
+          className="Modal"
+          overlayClassName="Overlay"
+          // style={customStyles}
           contentLabel="Example Modal"
         >
-          <h3>{internship.position}</h3>
-          <h5>
-            <a href={`http://${internship.applyurl}`}>
-              {internship.companyname}
-            </a>
-          </h5>
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
+          <div className="close">
+            <a href="#" onClick={this.closeModal} className="x">✕</a>
+          </div>
+
+          <div className="info__title">
+            <h3>{internship.position}</h3>
+            <h5>
+              <a href={`http://${internship.applyurl}`}>
+                {internship.companyname}
+              </a>
+            </h5>
+            <p><strong>Based from</strong>: {internship.basedfrom}</p>
+          </div>
+
+          <hr style={HrStyle} />
+
+          <div className="info__desc">
+            <p><strong>Description: </strong>{internship.description}</p>
+          </div>
+          
+          <div className="info__req">
+            <p><strong>Requirements</strong>: {internship.requirements}</p>
+          </div>
+
+          <div className="info__restrictions">
+            <p><strong>Location Restriction</strong>: {internship.locationrestrictions}</p>
+          </div>
+
+          <div className="info__salary">
+            <p><strong>Salary</strong>: {internship.salary}</p>
+          </div>
+
+          <div className="info__category">
+            <p><strong>Category</strong>: {internship.category.charAt(0).toUpperCase() + internship.category.slice(1)}</p>
+          </div>
+
+          <div className="info__apply">
+            <a href={`http://${internship.applyurl}`} target="_blank" className="apply">Apply</a>
+          </div>
 
         </Modal>
       </Container>
