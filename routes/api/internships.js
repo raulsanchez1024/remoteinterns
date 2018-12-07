@@ -47,7 +47,7 @@ router.get("/top-companies", (req, res) => {
 
 // GET all posts with category of Non-Techy
 router.get("/non-techy", (req, res) => {
-  Internship.find({ "category": "non-tech" }).exec((err, docs) => {
+  Internship.find({ "category": "non-techy" }).exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });

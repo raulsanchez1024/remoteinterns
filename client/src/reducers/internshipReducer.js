@@ -1,9 +1,13 @@
 import {
   GET_INTERNSHIPS,
   ADD_INTERNSHIP,
-  GET_PROMOTED_INTERNSHIPS,
   GET_SEARCHED_INTERNSHIPS,
-  GET_INTERNSHIPS_BY_TAG
+  GET_INTERNSHIPS_BY_TAG,
+  GET_SOFTWARE,
+  GET_MARKETING,
+  GET_DESIGN,
+  GET_TOP_COMPANIES,
+  GET_NON_TECHY
 } from "../actions/types";
 
 const initialState = {
@@ -32,6 +36,36 @@ export default function(state = initialState, action) {
         loading: false
       };
     case GET_INTERNSHIPS_BY_TAG:
+      return {
+        ...state,
+        internships: action.payload,
+        loading: false
+      };
+    case GET_SOFTWARE:
+      return {
+        ...state,
+        internships: action.payload,
+        loading: false
+      };
+    case GET_MARKETING:
+      return {
+        ...state,
+        internships: action.payload,
+        loading: false
+      };
+    case GET_DESIGN:
+      return {
+        ...state,
+        internships: action.payload,
+        loading: false
+      };
+    case GET_TOP_COMPANIES:
+      return {
+        ...state,
+        internships: action.payload,
+        loading: false
+      };
+    case GET_NON_TECHY:
       return {
         ...state,
         internships: action.payload,

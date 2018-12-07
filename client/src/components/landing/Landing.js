@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-
 import Header from '../header/Header';
-
-// Import Internships
-import Internships from "../internships/Internships";
 
 const Categories = styled.div`
   display: flex;
@@ -47,32 +43,24 @@ class Landing extends Component {
     return (
       <div>
         <Header />
-
         <Categories>
           <Category>
-            <a href="/">SOFTWARE</a>
+            <a href="/category/software">SOFTWARE</a>
           </Category>
-
           <Category>
-            <a href="/">MARKETING</a>
+            <a href="/category/marketing">MARKETING</a>
           </Category>
-
           <Category>
-            <a href="/">DESIGN</a>
+            <a href="/category/design">DESIGN</a>
           </Category>
-
           <Category>
-            <a href="/">TOP-COMPANIES</a>
+            <a href="/category/top-companies">TOP-COMPANIES</a>
           </Category>
-
           <Category>
-            <a href="/">NON-TECHY</a>
+            <a href="/category/non-techy">NON-TECHY</a>
           </Category>
-
         </Categories>
-
         <HR />
-        
       </div>
     )
   }

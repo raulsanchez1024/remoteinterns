@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import logoPNG from "../remoteinterns.png";
-import styled from "styled-components";
-
 import { history } from "../../App";
+import styled from "styled-components";
 
 // Styles
 import WhtBtn from "../styles/WhtBtn";
@@ -43,10 +42,20 @@ const Nav = styled.nav`
     padding-top: 25px;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   h1 {
     color: white;
     padding-top: 15px;
     padding-left: 20px;
+    transition-duration: 1s;
+  }
+
+  h1:hover {
+    color: grey;
+    transition: all 1s ease;
   }
 
   .right {
@@ -142,7 +151,15 @@ const ResponsiveNav = styled.nav`
     text-align: center;
     padding-top: 5px;
     font-weight: 700;
-}
+  }
+
+  .nav__left .nav__logo {
+    text-decoration: none;
+  }
+
+  .nav__left .nav__logo h1 {
+    color: white;
+  }
 
   @media(max-width: 800px) {
     display: flex;
@@ -174,27 +191,33 @@ class Header extends Component {
 
         <ResponsiveNav>
           <div className="nav__left">
-            <h1>RemoteInterns</h1>
+            <a href="/" className="nav__logo"><h1>RemoteInterns</h1></a>
           </div>
           <div className="nav__right">
-            <a href="/">Post</a>
+            <a href="/post">Post</a>
           </div>
         </ResponsiveNav>
 
         <Nav>
-          <img src={logoPNG} alt="remoteinterns__logo" />
-          <h1>RemoteInterns</h1>
+          <a href="/"><img src={logoPNG} alt="remoteinterns__logo" /></a>
+          <a href="/"><h1>RemoteInterns</h1></a>
           
           <div className="right">
-            <WhtBtn>Contact</WhtBtn>
-            <OutlineBtn>Post an Internship</OutlineBtn>
+            <WhtBtn href="/contact">Contact</WhtBtn>
+            <OutlineBtn href="/post">Post an Internship</OutlineBtn>
           </div>
         </Nav>
 
         <Search>
           <p className="jobtitle">Job Title</p>
           <form className="form" onSubmit={this.onSubmit}>
-            <input type="text" placeholder="Software Engineer" onChange={this.onChange} name="search" />
+            <input 
+              type="text" 
+              placeholder="Software Engineer" 
+              onChange={this.onChange} 
+              name="search"
+              value={this.state.search}
+            />
             <a type="submit" href={`/search/${this.state.search}`} >Find</a>
           </form>
         </Search>

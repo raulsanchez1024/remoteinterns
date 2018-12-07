@@ -3,9 +3,13 @@ import axios from "axios";
 import {
   GET_INTERNSHIPS,
   ADD_INTERNSHIP,
-  GET_PROMOTED_INTERNSHIPS,
   GET_SEARCHED_INTERNSHIPS,
-  GET_INTERNSHIPS_BY_TAG
+  GET_INTERNSHIPS_BY_TAG,
+  GET_SOFTWARE,
+  GET_MARKETING,
+  GET_DESIGN,
+  GET_TOP_COMPANIES,
+  GET_NON_TECHY
 } from "./types";
 
 export const addInternship = internshipData => dispatch => {
@@ -55,3 +59,64 @@ export const getInternshipsByTag = tag => dispatch => {
     )
     .catch(err => console.log(err));
 };
+
+export const getSoftware = () => dispatch => {
+  axios
+    .get(`/api/internships/software`)
+    .then(res => 
+      dispatch({
+        type: GET_SOFTWARE,
+        payload: res.data  
+      })
+    )
+    .catch(err => console.log(err));
+};
+
+export const getMarketing = () => dispatch => {
+  axios
+    .get(`/api/internships/marketing`)
+    .then(res => 
+      dispatch({
+        type: GET_MARKETING,
+        payload: res.data  
+      })
+    )
+    .catch(err => console.log(err));
+};
+
+export const getDesign = () => dispatch => {
+  axios
+    .get(`/api/internships/design`)
+    .then(res => 
+      dispatch({
+        type: GET_DESIGN,
+        payload: res.data  
+      })
+    )
+    .catch(err => console.log(err));
+};
+
+export const getTopCompanies = () => dispatch => {
+  axios
+    .get(`/api/internships/top-companies`)
+    .then(res => 
+      dispatch({
+        type: GET_TOP_COMPANIES,
+        payload: res.data  
+      })
+    )
+    .catch(err => console.log(err));
+};
+
+export const getNonTechy = () => dispatch => {
+  axios
+    .get(`/api/internships/non-techy`)
+    .then(res => 
+      dispatch({
+        type: GET_NON_TECHY,
+        payload: res.data  
+      })
+    )
+    .catch(err => console.log(err));
+};
+
