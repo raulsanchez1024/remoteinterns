@@ -200,7 +200,7 @@ class InternshipItem extends Component {
           </h5>
         </div>
         <div className="col2">
-          { tags.map(tag => <Tag key={tag} href="/">{tag}</Tag>) }
+          { tags.map(tag => <Tag key={tag} href={`/tag/${tag}`}>{tag}</Tag>) }
         </div>
         <div className="col3">
           <p className="exp">Salary: {internship.salary}</p>

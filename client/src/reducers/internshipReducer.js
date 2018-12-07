@@ -2,7 +2,8 @@ import {
   GET_INTERNSHIPS,
   ADD_INTERNSHIP,
   GET_PROMOTED_INTERNSHIPS,
-  GET_SEARCHED_INTERNSHIPS
+  GET_SEARCHED_INTERNSHIPS,
+  GET_INTERNSHIPS_BY_TAG
 } from "../actions/types";
 
 const initialState = {
@@ -27,7 +28,14 @@ export default function(state = initialState, action) {
     case GET_SEARCHED_INTERNSHIPS:
       return {
         ...state,
-        internships: [action.payload, ...state.internships]
+        internships: action.payload,
+        loading: false
+      };
+    case GET_INTERNSHIPS_BY_TAG:
+      return {
+        ...state,
+        internships: action.payload,
+        loading: false
       };
     default:
       return state;

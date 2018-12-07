@@ -9,6 +9,9 @@ import store from './store';
 
 // Import components
 import Landing from './components/landing/Landing';
+import Internships from "./components/internships/Internships";
+import InternshipsSearch from "./components/internships/InternshipsSeach";
+import InternshipsTag from "./components/internships/InternshipsTag";
 
 class App extends Component {
   render() {
@@ -16,7 +19,10 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Route exact path="/" component={Landing} />
+            <Landing />
+            <Route exact path="/" component={Internships} />
+            <Route exact path="/search/:keyword" component={InternshipsSearch} />
+            <Route exact path="/tag/:tag" component={InternshipsTag} />
           </div>
         </Router>
       </Provider>

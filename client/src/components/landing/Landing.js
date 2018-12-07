@@ -73,8 +73,6 @@ class Landing extends Component {
 
         <HR />
         
-        
-        <Internships />
       </div>
     )
   }
