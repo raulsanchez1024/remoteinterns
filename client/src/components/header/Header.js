@@ -207,7 +207,7 @@ class Header extends Component {
             <a href="/" className="nav__logo"><h1>RemoteInterns</h1></a>
           </div>
           <div className="nav__right">
-            <a href="/post">Post</a>
+            <a href="#" onClick={this.openModal}>Post</a>
           </div>
         </ResponsiveNav>
 
