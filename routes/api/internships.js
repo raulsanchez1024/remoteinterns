@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 
 // GET all posts with category of Software
 router.get("/software", (req, res) => {
-  Internship.find({ "category": "software" }).exec((err, docs) => {
+  Internship.find({ "category": "software" }).sort("-date").exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });
@@ -23,7 +23,7 @@ router.get("/software", (req, res) => {
 
 // GET all posts with category of Marketing
 router.get("/marketing", (req, res) => {
-  Internship.find({ "category": "marketing" }).exec((err, docs) => {
+  Internship.find({ "category": "marketing" }).sort("-date").exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });
@@ -31,7 +31,7 @@ router.get("/marketing", (req, res) => {
 
 // GET all posts with category of Design
 router.get("/design", (req, res) => {
-  Internship.find({ "category": "design" }).exec((err, docs) => {
+  Internship.find({ "category": "design" }).sort("-date").exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });
@@ -39,7 +39,7 @@ router.get("/design", (req, res) => {
 
 // GET all posts with category of Top-Company
 router.get("/top-companies", (req, res) => {
-  Internship.find({ "category": "top-company" }).exec((err, docs) => {
+  Internship.find({ "category": "top-company" }).sort("-date").exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });
@@ -47,7 +47,7 @@ router.get("/top-companies", (req, res) => {
 
 // GET all posts with category of Non-Techy
 router.get("/non-techy", (req, res) => {
-  Internship.find({ "category": "non-techy" }).exec((err, docs) => {
+  Internship.find({ "category": "non-techy" }).sort("-date").exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });
@@ -63,7 +63,7 @@ router.get("/tag/:tag", (req, res) => {
 
 // GET all posts that contain the search word(s)
 router.get("/search/:search", (req, res) => {
-  Internship.find({ "$text": { "$search": req.params.search } }).exec((err, docs) => {
+  Internship.find({ "$text": { "$search": req.params.search } }).sort("-date").exec((err, docs) => {
     if (err) throw err;
     return res.json(docs);
   });

@@ -14,7 +14,7 @@ import {
 
 export const addInternship = internshipData => dispatch => {
   axios
-    .post("/api/internships")
+    .post("/api/internships/post", internshipData)
     .then(res =>
       dispatch({
         type: ADD_INTERNSHIP,

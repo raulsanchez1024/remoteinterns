@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import logoPNG from "../remoteinterns.png";
 import { history } from "../../App";
 import styled from "styled-components";
+
+import { addInternship } from "../../actions/internshipActions";
 
 import Modal from "react-modal";
 
@@ -173,13 +177,25 @@ class Header extends Component {
     super();
     this.state = {
       search: "",
-      modalIsOpen: false
+      modalIsOpen: false,
+      email: "",
+      position: "",
+      companyname: "",
+      basedfrom: "",
+      category: "",
+      extratags: "",
+      salary: "",
+      locationrestrictions: "",
+      description: "",
+      requirements: "",
+      applyurl: ""
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   onChange(e) {
@@ -196,6 +212,24 @@ class Header extends Component {
 
   closeModal() {
     this.setState({ modalIsOpen: false });
+  }
+
+  onFormSubmit() {
+    const internshipData = {
+      email: this.state.email,
+      position: this.state.position,
+      companyname: this.state.companyname,
+      basedfrom: this.state.basedfrom,
+      category: this.state.category,
+      extratags: this.state.extratags,
+      salary: this.state.salary,
+      locationrestrictions: this.state.locationrestrictions,
+      description: this.state.description,
+      requirements: this.state.requirements,
+      applyurl: this.state.applyurl
+    };
+
+    this.props.addInternship(internshipData);
   }
 
   render() {
@@ -239,17 +273,46 @@ class Header extends Component {
             <p>$29 per post for one week of top frontpage placement</p>
           </div>
 
-          <form className="form">
+          <form className="form" onSubmit={this.onFormSubmit}>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" placeholder="internships@google.com" />
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="internships@google.com"
+              value={this.state.email}
+              onChange={this.onChange}
+               />
             <label htmlFor="position">Position</label>
-            <input type="text" name="position" placeholder="Software Engineer Intern" />
-            <label htmlFor="company">Company</label>
-            <input type="text" name="company" placeholder="Google" />
+            <input 
+              type="text" 
+              name="position" 
+              placeholder="Software Engineer Intern"
+              value={this.state.position}
+              onChange={this.onChange}
+              />
+            <label htmlFor="companyname">Company</label>
+            <input 
+              type="text" 
+              name="companyname" 
+              placeholder="Google"
+              value={this.state.companyname}
+              onChange={this.onChange}
+              />
             <label htmlFor="basedfrom">Based From</label>
-            <input type="text" name="basedfrom" placeholder="Earth, Prague" />
+            <input 
+              type="text" 
+              name="basedfrom" 
+              placeholder="Earth, Prague"
+              value={this.state.basedfrom}
+              onChange={this.onChange}
+              />
             <label htmlFor="category">Category</label>
-            <select name="category" id="">
+            <select 
+              name="category"  
+              id=""
+              value={this.state.category}
+              onChange={this.onChange}
+              >
               <option value="software">Software</option>
               <option value="marketing">Marketing</option>
               <option value="design">Design</option>
@@ -257,17 +320,53 @@ class Header extends Component {
               <option value="non-techy">Non-Techy</option>
             </select>
             <label htmlFor="extratags">Three keywords that best describe this position</label>
-            <input type="text" name="extratags" placeholder="React.js, Node.js, SCSS" />
+            <input 
+              type="text" 
+              name="extratags" 
+              placeholder="React.js, Node.js, SCSS"
+              value={this.state.extratags}
+              onChange={this.onChange}
+              />
             <label htmlFor="salary">Salary</label>
-            <input type="text" name="salary" placeholder="$25/hr" />
+            <input 
+              type="text" 
+              name="salary" 
+              placeholder="$25/hr"
+              value={this.state.salary}
+              onChange={this.onChange}
+              />
             <label htmlFor="locationrestrictions">Location Restriction</label>
-            <input type="text" name="locationrestrictions" placeholder="Must be US citizen" />
+            <input 
+              type="text" 
+              name="locationrestrictions" 
+              placeholder="Must be US citizen"
+              value={this.state.locationrestrictions}
+              onChange={this.onChange}
+              />
             <label htmlFor="description">Description</label>
-            <textarea name="description" cols="30" rows="10"></textarea>
+            <textarea 
+              name="description" 
+              cols="30" 
+              rows="10"
+              value={this.state.description}
+              onChange={this.onChange}
+              ></textarea>
             <label htmlFor="requirements">Requirements</label>
-            <textarea name="requirements" cols="30" rows="10"></textarea>
+            <textarea 
+              name="requirements" 
+              cols="30" 
+              rows="10"
+              value={this.state.requirements}
+              onChange={this.onChange}
+              ></textarea>
             <label htmlFor="applyurl">Apply URL</label>
-            <input type="text" name="applyurl" placeholder="https://google.com/internship0023" />
+            <input 
+              type="text" 
+              name="applyurl" 
+              placeholder="https://google.com/internship0023"
+              value={this.state.applyurl}
+              onChange={this.onChange} 
+              />
 
             <p className="promo__info">Once submitted we will send you an invoice of <strong>$29</strong> to your email. When paid, your post will be placed at the top of the frontpage for one week.</p>
 
@@ -295,4 +394,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  internship: state.internship
+});
+
+export default connect(mapStateToProps, { addInternship })(withRouter(Header));

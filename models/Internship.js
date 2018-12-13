@@ -13,7 +13,7 @@ const InternshipSchema = new Schema({
   requirements: { type: String, required: false },
   salary: { type: String, required: false },
   applyurl: { type: String, requried: true },
-  promote: { type: Boolean, required: true },
+  promote: { type: Boolean, required: false },
   date: { type: Date, default: Date.now }
 });
 
