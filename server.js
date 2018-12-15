@@ -18,9 +18,6 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
-// Simple get request (for testing ONLY)
-app.get("/", (req, res) => res.send("Hello"));
-
 // Use routes
 app.use("/api/internships", internships);
 
